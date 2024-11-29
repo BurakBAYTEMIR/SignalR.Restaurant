@@ -1,6 +1,6 @@
-﻿namespace SignalR.Restaurant.Dtos.AboutDto
+﻿namespace SignalR.Restaurant.Dtos.AboutDtos
 {
-    public class GetAboutDto
+    public class ResultAboutDto
     {
         public int AboutID { get; set; }
         public string AboutImageUrl { get; set; }

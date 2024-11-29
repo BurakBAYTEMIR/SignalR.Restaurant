@@ -1,4 +1,4 @@
-﻿namespace SignalR.Restaurant.Dtos.CategoryDto
+﻿namespace SignalR.Restaurant.Web.UI.Dtos.CategoryDtos
 {
     public class CreateCategoryDto
     {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.Restaurant.Business.Abstract;
-using SignalR.Restaurant.Dtos.CategoryDto;
+using SignalR.Restaurant.Dtos.CategoryDtos;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.SignalR.Api.Controllers
@@ -37,7 +37,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Category Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteCategory(int id)
         {
             var value = _categoryService.TGetById(id);
@@ -57,7 +57,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Category Alanı güncellendi");
         }
 
-        [HttpGet("GetCategory")]
+        [HttpGet("{id}")]
         public IActionResult GetCategory(int id)
         {
             var values = _categoryService.TGetById(id);

@@ -1,6 +1,6 @@
-﻿namespace SignalR.Restaurant.Dtos.CategoryDto
+﻿namespace SignalR.Restaurant.Web.UI.Dtos.CategoryDtos
 {
-    public class ResultCategoryDto
+    public class UpdateCategoryDto
     {
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
