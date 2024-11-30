@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.Restaurant.Business.Abstract;
-using SignalR.Restaurant.Dtos.FeatureDto;
+using SignalR.Restaurant.Dtos.FeatureDtos;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.SignalR.Api.Controllers
@@ -40,7 +40,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Feature Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteFeature(int id)
         {
             var value = _featureService.TGetById(id);
@@ -64,7 +64,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Feature Alanı güncellendi");
         }
 
-        [HttpGet("GetFeature")]
+        [HttpGet("{id}")]
         public IActionResult GetFeature(int id)
         {
             var values = _featureService.TGetById(id);

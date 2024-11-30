@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.Restaurant.Business.Abstract;
-using SignalR.Restaurant.Dtos.SocialMediaDto;
+using SignalR.Restaurant.Dtos.SocialMediaDtos;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.SignalR.Api.Controllers
@@ -38,7 +38,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Sosyal Medya Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteSocialMedia(int id)
         {
             var value = _socialMediaService.TGetById(id);
@@ -59,7 +59,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Sosyal Medya Alanı güncellendi");
         }
 
-        [HttpGet("GetSocialMedia")]
+        [HttpGet("{id}")]
         public IActionResult GetSocialMedia(int id)
         {
             var values = _socialMediaService.TGetById(id);

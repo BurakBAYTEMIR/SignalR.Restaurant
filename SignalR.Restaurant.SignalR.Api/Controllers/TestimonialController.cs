@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.Restaurant.Business.Abstract;
-using SignalR.Restaurant.Dtos.TestimonialDto;
+using SignalR.Restaurant.Dtos.TestimonialDtos;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.SignalR.Api.Controllers
@@ -40,7 +40,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Testimonial Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteTestimonial(int id)
         {
             var value = _testimonialService.TGetById(id);
@@ -63,7 +63,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Testimonial Alanı güncellendi");
         }
 
-        [HttpGet("GetTestimonial")]
+        [HttpGet("{id}")]
         public IActionResult GetTestimonial(int id)
         {
             var values = _testimonialService.TGetById(id);

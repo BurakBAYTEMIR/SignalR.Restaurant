@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.Restaurant.Business.Abstract;
-using SignalR.Restaurant.Dtos.BookingDto;
+using SignalR.Restaurant.Dtos.BookingDtos;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.SignalR.Api.Controllers
@@ -39,7 +39,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Booking Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteBooking(int id)
         {
             var value = _bookingService.TGetById(id);
@@ -62,7 +62,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Booking Alanı güncellendi");
         }
 
-        [HttpGet("GetBooking")]
+        [HttpGet("{id}")]
         public IActionResult GetBooking(int id)
         {
             var values = _bookingService.TGetById(id);

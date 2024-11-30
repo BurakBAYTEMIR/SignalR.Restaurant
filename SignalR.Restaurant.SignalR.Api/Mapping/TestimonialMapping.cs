@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using SignalR.Restaurant.Dtos.ContactDto;
-using SignalR.Restaurant.Dtos.TestimonialDto;
+using SignalR.Restaurant.Dtos.TestimonialDtos;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.SignalR.Api.Mapping

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.Restaurant.Business.Abstract;
-using SignalR.Restaurant.Dtos.DiscountDto;
+using SignalR.Restaurant.Dtos.DiscountDtos;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.SignalR.Api.Controllers
@@ -38,7 +38,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Discount Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteDiscount(int id)
         {
             var value = _discountService.TGetById(id);
@@ -60,7 +60,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Discount Alanı güncellendi");
         }
 
-        [HttpGet("GetDiscount")]
+        [HttpGet("{id}")]
         public IActionResult GetDiscount(int id)
         {
             var values = _discountService.TGetById(id);

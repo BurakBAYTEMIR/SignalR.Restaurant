@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SignalR.Restaurant.Dtos.FeatureDto;
+using SignalR.Restaurant.Dtos.FeatureDtos;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.SignalR.Api.Mapping

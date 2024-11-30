@@ -37,7 +37,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Hakkımda Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteAbout(int id)
         {
             var value = _aboutService.TGetById(id);
@@ -58,7 +58,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Hakkımda Alanı güncellendi");
         }
 
-        [HttpGet("GetAbout")]
+        [HttpGet("{id}")]
         public IActionResult GetAbout(int id)
         {
             var values = _aboutService.TGetById(id);

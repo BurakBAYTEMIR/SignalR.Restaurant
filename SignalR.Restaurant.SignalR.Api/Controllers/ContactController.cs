@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.Restaurant.Business.Abstract;
-using SignalR.Restaurant.Dtos.ContactDto;
+using SignalR.Restaurant.Dtos.ContactDtos;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.SignalR.Api.Controllers
@@ -38,7 +38,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Contact Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteContact(int id)
         {
             var value = _contactService.TGetById(id);
@@ -60,7 +60,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok("Contact Alanı güncellendi");
         }
 
-        [HttpGet("GetContact")]
+        [HttpGet("{id}")]
         public IActionResult GetContact(int id)
         {
             var values = _contactService.TGetById(id);
