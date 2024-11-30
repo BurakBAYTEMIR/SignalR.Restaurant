@@ -1,6 +1,6 @@
-﻿namespace SignalR.Restaurant.Dtos.ProductDto
+﻿namespace SignalR.Restaurant.Dtos.ProductDtos
 {
-    public class UpdateProductDto
+    public class ResultProductDto
     {
         public int ProductID { get; set; }
         public string ProductName { get; set; }

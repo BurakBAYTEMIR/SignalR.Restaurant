@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SignalR.Restaurant.Business.Abstract;
 using SignalR.Restaurant.DataAccess.Concrete;
-using SignalR.Restaurant.Dtos.ProductDto;
+using SignalR.Restaurant.Dtos.ProductDtos;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.SignalR.Api.Controllers
@@ -55,12 +55,13 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
                 ProductDescription = createProductDto.ProductDescription,
                 Price = createProductDto.Price,
                 ImageUrl = createProductDto.ImageUrl,
-                ProductStatus = createProductDto.ProductStatus
+                ProductStatus = createProductDto.ProductStatus,
+                CategoryID = createProductDto.CategoryID
             });
             return Ok("Product Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetById(id);
@@ -78,12 +79,13 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
                 ProductDescription = updateProductDto.ProductDescription,
                 Price = updateProductDto.Price,
                 ImageUrl = updateProductDto.ImageUrl,
-                ProductStatus = updateProductDto.ProductStatus
+                ProductStatus = updateProductDto.ProductStatus,
+                CategoryID = updateProductDto.CategoryID
             });
             return Ok("Product Alanı güncellendi");
         }
 
-        [HttpGet("GetProduct")]
+        [HttpGet("{id}")]
         public IActionResult GetProduct(int id)
         {
             var values = _productService.TGetById(id);

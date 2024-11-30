@@ -1,6 +1,6 @@
-﻿namespace SignalR.Restaurant.Dtos.ProductDto
+﻿namespace SignalR.Restaurant.Web.UI.Dtos.ProductDtos
 {
-    public class ResultProductDto
+    public class GetProductDto
     {
         public int ProductID { get; set; }
         public string ProductName { get; set; }
@@ -8,5 +8,6 @@
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
         public bool ProductStatus { get; set; }
+        public int CategoryID { get; set; }
     }
 }
