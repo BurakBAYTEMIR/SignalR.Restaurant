@@ -1,4 +1,4 @@
-﻿@model List<ResultProductDto>
+﻿@model List<ResultAboutDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -6,25 +6,23 @@
 
 <div class="content">
     <div class="container-fluid">
-        <h4 class="page-title">Ürün İşlemleri</h4>
+        <h4 class="page-title">Ana Sayfa Hakkımızda İşlemleri</h4>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Ürün Listesi</div>
+                        <div class="card-title">Hakkımızda Listesi</div>
                     </div>
                     <div class="card-body">
                         <div class="card-sub">
-                            Ürünler ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+                            Hakkımızda ile ilgili işlemleri aşağıda yapabilirsiniz. Tema bütünlüğü için sadece 1 tane hakkımızda alanı oluşturunuz.
                         </div>
                         <table class="table mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Ürün Adı</th>
-                                    <th scope="col">Fiyatı</th>
-                                    <th scope="col">Kategori</th>
-                                    <th scope="col">Durumu</th>
+                                    <th scope="col">Başlık</th>
+                                    <th scope="col">Açıklama</th>
                                     <th scope="col">Sil</th>
                                     <th scope="col">Güncelle</th>
                                 </tr>
@@ -33,22 +31,21 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-                                        <td>@item.ProductID</td>
-                                        <td>@item.ProductName</td>
-                                        <td>@item.Price</td>
-                                        <td>@item.CategoryName</td>
-                                        <td>@item.ProductStatus</td>
-                                        <td><a href="/Product/DeleteProduct/@item.ProductID" class="btn btn-outline-danger">Sil</a></td>
-                                        <td><a href="/Product/UpdateProduct/@item.ProductID" class="btn btn-outline-warning">Güncelle</a></td>
+                                        <td>@item.AboutID</td>
+                                        <td>@item.AboutTitle</td>
+                                        <td>@item.AboutDescription</td>
+                                        <td><a href="/About/DeleteAbout/@item.AboutID" class="btn btn-outline-danger">Sil</a></td>
+                                        <td><a href="/About/UpdateAbout/@item.AboutID" class="btn btn-outline-warning">Güncelle</a></td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
                         <br />
-                        <a href="/Product/CreateProduct/" class="btn btn-outline-success">Yeni Ürün girişi</a>
+                        <a href="/About/CreateAbout/" class="btn btn-outline-success">Yeni Hakkımda girişi</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

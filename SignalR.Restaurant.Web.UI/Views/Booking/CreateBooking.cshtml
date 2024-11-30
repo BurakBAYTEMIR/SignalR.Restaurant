@@ -1,0 +1,56 @@
+﻿@model CreateBookingDto
+@{
+    ViewData["Title"] = "CreateBooking";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Rezervasyon İşlemleri</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Yeni Rezervasyon Girişi</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="bookingname">Adı Soyadı</label>
+                                <input type="text" class="form-control" asp-for="BookingName" id="bookingname" placeholder="Adı soyadını giriniz.">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="bookingphone">Telefon Numarası</label>
+                                <input type="text" class="form-control" asp-for="BookingPhone" id="bookingphone" placeholder="Telefon numarasını giriniz.">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="bookingmail">Mail Adresi</label>
+                                <input type="email" class="form-control" asp-for="BookingMail" id="bookingmail" placeholder="Email adresini giriniz.">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="bookingpersoncount">Kişi Sayısı</label>
+                                <input type="text" class="form-control" asp-for="BookingPersonCount" id="bookingpersoncount" placeholder="Kişi sayısını giriniz.">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="bookingdate">Rezervasyon Tarihi</label>
+                                <input type="date" class="form-control" asp-for="BookingDate" id="bookingdate" placeholder="Rezervasyon tarihini giriniz.">
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-primary">Rezervasyonu Ekle</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
