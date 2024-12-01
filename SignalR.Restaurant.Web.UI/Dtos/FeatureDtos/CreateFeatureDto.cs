@@ -1,4 +1,4 @@
-﻿namespace SignalR.Restaurant.Dtos.Web.UI.FeatureDtos
+﻿namespace SignalR.Restaurant.Web.UI.Dtos.FeatureDtos
 {
     public class CreateFeatureDto
     {
