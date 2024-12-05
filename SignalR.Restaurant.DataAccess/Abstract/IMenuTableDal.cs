@@ -1,0 +1,14 @@
+﻿using SignalR.Restaurant.Entities.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SignalR.Restaurant.DataAccess.Abstract
+{
+    public interface IMenuTableDal : IGenericDal<MenuTable>
+    {
+        public int MenuTableCount();
+    }
+}

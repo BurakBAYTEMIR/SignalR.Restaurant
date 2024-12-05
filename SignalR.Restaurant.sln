@@ -15,6 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.Restaurant.Business
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.Restaurant.Dtos", "SignalR.Restaurant.Dtos\SignalR.Restaurant.Dtos.csproj", "{3D26AB6F-77AD-465A-B811-F943F39B8868}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{89C38BBC-D914-42C8-9307-ECCC07B8A8AB}"
+	ProjectSection(SolutionItems) = preProject
+		DatabaseTrigger.txt = DatabaseTrigger.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
