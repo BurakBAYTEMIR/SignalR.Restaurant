@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using SignalR.Restaurant.Business.Abstract;
-using SignalR.Restaurant.DataAccess.Concrete;
 
 namespace SignalR.Restaurant.SignalR.Api.Hubs
 {
@@ -67,6 +66,12 @@ namespace SignalR.Restaurant.SignalR.Api.Hubs
 
             var menuTableCount = _menuTableService.TMenuTableCount();
             await Clients.All.SendAsync("ReceiveMenuTableCount", menuTableCount);
+        }
+
+        public async Task SendProgress()
+        {
+            var totalMoneyCaseAmount = _moneyCaseService.TTotalMoneyCaseAmount();
+            await Clients.All.SendAsync("ReceiveTotalMoneyCaseAmount", totalMoneyCaseAmount.ToString("0.00" + "₺"));
         }
     }
 }
