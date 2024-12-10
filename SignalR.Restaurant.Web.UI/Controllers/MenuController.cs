@@ -2,18 +2,17 @@
 using Newtonsoft.Json;
 using SignalR.Restaurant.Web.UI.Dtos.ProductDtos;
 
-namespace SignalR.Restaurant.Web.UI.ViewComponents.DefaultComponents
+namespace SignalR.Restaurant.Web.UI.Controllers
 {
-    public class _DefaultOurMenuPartialComponent : ViewComponent
+    public class MenuController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _DefaultOurMenuPartialComponent(IHttpClientFactory httpClientFactory)
+        public MenuController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
-
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7195/api/Product/ProductListWithCategory");
