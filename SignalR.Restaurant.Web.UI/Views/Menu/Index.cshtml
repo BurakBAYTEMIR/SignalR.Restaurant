@@ -118,13 +118,14 @@
     @await Component.InvokeAsync("_UILayoutScriptPartialComponent")
 
     <script>
-        function showproductname(productid)
+        function showproductname(value)
         {
-        var id = productid;
+        var id = value;
         $.ajax
         ({
-            type:'post',
+            type:'POST',
             data:{item:id},
+            url:"/Menu/AddBasket/" + id,
             contentType:'json',
             success:function()
             {
