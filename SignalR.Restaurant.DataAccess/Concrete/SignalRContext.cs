@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SignalR.Restaurant.Entities;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SignalR.Restaurant.Entities.Entities;
 
 namespace SignalR.Restaurant.DataAccess.Concrete
 {
-    public class SignalRContext : DbContext
+    public class SignalRContext : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

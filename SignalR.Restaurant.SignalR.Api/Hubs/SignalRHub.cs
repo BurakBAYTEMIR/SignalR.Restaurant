@@ -23,7 +23,7 @@ namespace SignalR.Restaurant.SignalR.Api.Hubs
             _bookingService = bookingService;
             _notificationService = notificationService;
         }
-
+        public static int clientCount { get; set; } = 0;
         public async Task SendStatistic()
         {
             var categoryCount = _categoryService.TCategoryCount();
@@ -97,6 +97,25 @@ namespace SignalR.Restaurant.SignalR.Api.Hubs
         {
             var value = _menuTableService.TGetListAll();
             await Clients.All.SendAsync("ReceiveMenuTableStatus", value);
+        }
+
+        public async Task SendMessage(string user, string message)
+        {
+            await Clients.All.SendAsync("ReceiveMessage", user, message);
+        }
+
+        public override async Task OnConnectedAsync()
+        {
+            clientCount++;
+            await Clients.All.SendAsync("ReceiveClientCount", clientCount);
+            await base.OnConnectedAsync();
+        }
+
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+            clientCount--;
+            await Clients.All.SendAsync("ReceiveClientCount", clientCount);
+            await base.OnDisconnectedAsync(exception);
         }
     }
 }
