@@ -66,5 +66,26 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             var values = _discountService.TGetById(id);
             return Ok(values);
         }
+
+        [HttpGet("ChangeStatusToFalse/{id}")]
+        public IActionResult ChangeStatusToFalse(int id)
+        {
+            _discountService.TChangeStatusToFalse(id);
+            return Ok("Durum Değiştirildi");
+        }
+
+        [HttpGet("ChangeStatusToTrue/{id}")]
+        public IActionResult ChangeStatusToTrue(int id)
+        {
+            _discountService.TChangeStatusToTrue(id);
+            return Ok("Durum Değiştirildi");
+        }
+
+        [HttpGet("GetStatusTrue")]
+        public IActionResult GetStatusTrue()
+        {
+            var values = _discountService.TGetStatusTrue();
+            return Ok(values);
+        }
     }
 }

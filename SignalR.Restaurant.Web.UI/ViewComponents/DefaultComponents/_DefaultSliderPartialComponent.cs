@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using SignalR.Restaurant.Web.UI.Dtos.FeatureDtos;
 using SignalR.Restaurant.Web.UI.Dtos.SliderDtos;
 
 namespace SignalR.Restaurant.Web.UI.ViewComponents.DefaultComponents
@@ -16,9 +17,9 @@ namespace SignalR.Restaurant.Web.UI.ViewComponents.DefaultComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7195/api/Sliders");
+            var responseMessage = await client.GetAsync("https://localhost:7195/api/Feature");
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
-            var values = JsonConvert.DeserializeObject<List<ResultSliderDto>>(jsonData);
+            var values = JsonConvert.DeserializeObject<List<ResultFeatureDto>>(jsonData);
             return View(values);
         }
     }

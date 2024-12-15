@@ -31,6 +31,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             _bookingService.TAdd(new Booking()
             {
                 BookingDate = createBookingDto.BookingDate,
+                BookingDescription = "Rezervasyon Alındı",
                 BookingMail = createBookingDto.BookingMail,
                 BookingName = createBookingDto.BookingName,
                 BookingPersonCount = createBookingDto.BookingPersonCount,
@@ -54,6 +55,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             {
                 BookingID = updateBookingDto.BookingID,
                 BookingDate = updateBookingDto.BookingDate,
+                BookingDescription = updateBookingDto.BookingDescription,
                 BookingMail = updateBookingDto.BookingMail,
                 BookingName = updateBookingDto.BookingName,
                 BookingPersonCount = updateBookingDto.BookingPersonCount,
@@ -67,6 +69,20 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
         {
             var values = _bookingService.TGetById(id);
             return Ok(values);
+        }
+
+        [HttpGet("BookingStatusCancelled/{id}")]
+        public IActionResult BookingStatusCancelled(int id)
+        {
+            _bookingService.TBookingStatusCancelled(id);
+            return Ok("Rezervayon Açıklaması Değiştirildi");
+        }
+
+        [HttpGet("BookingStatusApproved/{id}")]
+        public IActionResult BookingStatusApproved(int id)
+        {
+            _bookingService.TBookingStatusApproved(id);
+            return Ok("Rezervayon Açıklaması Değiştirildi");
         }
     }
 }

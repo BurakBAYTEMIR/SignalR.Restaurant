@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SignalR.Restaurant.DataAccess.Concrete;
 
@@ -11,9 +12,10 @@ using SignalR.Restaurant.DataAccess.Concrete;
 namespace SignalR.Restaurant.DataAccess.Migrations
 {
     [DbContext(typeof(SignalRContext))]
-    partial class SignalRContextModelSnapshot : ModelSnapshot
+    [Migration("20241214062458_mig_add_booking_description")]
+    partial class mig_add_booking_description
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -407,9 +409,6 @@ namespace SignalR.Restaurant.DataAccess.Migrations
                     b.Property<string>("DiscountImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("DiscountStatus")
-                        .HasColumnType("bit");
 
                     b.Property<string>("DiscountTitle")
                         .IsRequired()

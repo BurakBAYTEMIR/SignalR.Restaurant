@@ -18,6 +18,16 @@ namespace SignalR.Restaurant.Business.Concrete
             _discountDal.Add(entity);
         }
 
+        public void TChangeStatusToFalse(int id)
+        {
+            _discountDal.ChangeStatusToFalse(id);
+        }
+
+        public void TChangeStatusToTrue(int id)
+        {
+            _discountDal.ChangeStatusToTrue(id);
+        }
+
         public void TDelete(Discount entity)
         {
             _discountDal.Delete(entity);
@@ -31,6 +41,11 @@ namespace SignalR.Restaurant.Business.Concrete
         public List<Discount> TGetListAll()
         {
             return _discountDal.GetListAll();
+        }
+
+        public List<Discount> TGetStatusTrue()
+        {
+            return _discountDal.GetStatusTrue();
         }
 
         public void TUpdate(Discount entity)

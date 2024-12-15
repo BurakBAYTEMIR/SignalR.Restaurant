@@ -33,7 +33,11 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
                 ContactMail = createContactDto.ContactMail,
                 ContactLocation = createContactDto.ContactLocation,
                 ContactPhone = createContactDto.ContactPhone,
-                ContactFooterDescription = createContactDto.ContactFooterDescription
+                ContactFooterDescription = createContactDto.ContactFooterDescription,
+                ContactFooterTitle = createContactDto.ContactFooterTitle,
+                ContactOpenDays = createContactDto.ContactOpenDays,
+                ContactOpenDaysDescription = createContactDto.ContactOpenDaysDescription,
+                ContactOpenHours = createContactDto.ContactOpenHours
             });
             return Ok("Contact Kısmı Başarılı Bir Şekilde Eklendi");
         }
@@ -55,7 +59,11 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
                 ContactMail = updateContactDto.ContactMail,
                 ContactLocation = updateContactDto.ContactLocation,
                 ContactPhone = updateContactDto.ContactPhone,
-                ContactFooterDescription = updateContactDto.ContactFooterDescription
+                ContactFooterDescription = updateContactDto.ContactFooterDescription,
+                ContactFooterTitle = updateContactDto.ContactFooterTitle,
+                ContactOpenDays = updateContactDto.ContactOpenDays,
+                ContactOpenDaysDescription = updateContactDto.ContactOpenDaysDescription,
+                ContactOpenHours = updateContactDto.ContactOpenHours
             });
             return Ok("Contact Alanı güncellendi");
         }
