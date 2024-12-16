@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.Restaurant.Entities.Entities;
 using SignalR.Restaurant.Web.UI.Dtos.IdentityDtos;
 
 namespace SignalR.Restaurant.Web.UI.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly SignInManager<AppUser> _signInManager;
@@ -29,6 +31,12 @@ namespace SignalR.Restaurant.Web.UI.Controllers
                 return RedirectToAction("Index", "Statistic");
             }
             return View();
+        }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Default");
         }
     }
 }
