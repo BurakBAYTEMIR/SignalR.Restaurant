@@ -6,6 +6,7 @@
     decimal basketTotalPriceWithTax = 0;
     decimal tax = 0;
     decimal taxRate = 18;
+    decimal totalPrice = 0;
 }
 
 <!DOCTYPE html>
@@ -47,6 +48,7 @@
                         tax = basketTotalPrice / 100 * taxRate;
                         basketTotalPriceWithTax = basketTotalPrice + tax;
                         count++;
+                        totalPrice = item.Price * item.Count;
                         <tbody class="align-middle">
                             <tr>
                                 <td class="align-middle">@count</td>

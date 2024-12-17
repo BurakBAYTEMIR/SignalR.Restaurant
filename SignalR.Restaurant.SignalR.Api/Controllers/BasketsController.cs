@@ -34,17 +34,18 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
         [HttpPost]
         public ActionResult CreateBasket(CreateBasketDto createBasketDto)
         {
+            
             using var context = new SignalRContext();
             _basketService.TAdd(new Basket
             {
                 ProductID = createBasketDto.ProductID,
                 Count = 1,
-                MenuTableID = 4,
+                MenuTableID = createBasketDto.MenuTableID,
                 Price = context.Products
                     .Where(x => x.ProductID == createBasketDto.ProductID)
                     .Select(y => y.Price)
                     .FirstOrDefault(),
-                TotalPrice = 0
+                TotalPrice = createBasketDto.TotalPrice
             });
             return Ok();
         }

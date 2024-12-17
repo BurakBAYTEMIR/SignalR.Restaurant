@@ -86,19 +86,18 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
             return Ok(_productService.TProductAvgPriceByHamburger());
         }
 
+        [HttpGet("GetLast9Products")]
+        public IActionResult GetLast9Products()
+        {
+            return Ok(_productService.TGetLast9Products());
+        }
+
 
         [HttpPost]
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
-            _productService.TAdd(new Product()
-            {
-                ProductName = createProductDto.ProductName,
-                ProductDescription = createProductDto.ProductDescription,
-                Price = createProductDto.Price,
-                ImageUrl = createProductDto.ImageUrl,
-                ProductStatus = createProductDto.ProductStatus,
-                CategoryID = createProductDto.CategoryID
-            });
+            var value = _mapper.Map<Product>(createProductDto);
+            _productService.TAdd(value);
             return Ok("Product Kısmı Başarılı Bir Şekilde Eklendi");
         }
 
@@ -113,24 +112,16 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
         [HttpPut]
         public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
-            _productService.TUpdate(new Product()
-            {
-                ProductID = updateProductDto.ProductID,
-                ProductName = updateProductDto.ProductName,
-                ProductDescription = updateProductDto.ProductDescription,
-                Price = updateProductDto.Price,
-                ImageUrl = updateProductDto.ImageUrl,
-                ProductStatus = updateProductDto.ProductStatus,
-                CategoryID = updateProductDto.CategoryID
-            });
+            var value = _mapper.Map<Product>(updateProductDto);
+            _productService.TUpdate(value);
             return Ok("Product Alanı güncellendi");
         }
 
         [HttpGet("{id}")]
         public IActionResult GetProduct(int id)
         {
-            var values = _productService.TGetById(id);
-            return Ok(values);
+            var value = _productService.TGetById(id);
+            return Ok(_mapper.Map<GetProductDto>(value));
         }
     }
 }

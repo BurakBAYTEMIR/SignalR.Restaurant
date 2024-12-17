@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using SignalR.Restaurant.Business.Abstract;
 using SignalR.Restaurant.Dtos.BookingDtos;
@@ -12,10 +13,12 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
     {
         private readonly IBookingService _bookingService;
         private readonly IMapper _mapper;
-        public BookingController(IBookingService bookingService, IMapper mapper)
+        private readonly IValidator<CreateBookingDto> _validator;
+        public BookingController(IBookingService bookingService, IMapper mapper, IValidator<CreateBookingDto> validator)
         {
             _bookingService = bookingService;
             _mapper = mapper;
+            _validator = validator;
         }
 
         [HttpGet]
@@ -28,15 +31,14 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
         [HttpPost]
         public IActionResult CreateBooking(CreateBookingDto createBookingDto)
         {
-            _bookingService.TAdd(new Booking()
+            createBookingDto.BookingDescription = "Rezervasyon Alındı";
+            var validationResult = _validator.Validate(createBookingDto);
+            if (!validationResult.IsValid)
             {
-                BookingDate = createBookingDto.BookingDate,
-                BookingDescription = "Rezervasyon Alındı",
-                BookingMail = createBookingDto.BookingMail,
-                BookingName = createBookingDto.BookingName,
-                BookingPersonCount = createBookingDto.BookingPersonCount,
-                BookingPhone = createBookingDto.BookingPhone
-            });
+                return BadRequest(validationResult.Errors);
+            }
+            var value = _mapper.Map<Booking>(createBookingDto);
+            _bookingService.TAdd(value);
             return Ok("Booking Kısmı Başarılı Bir Şekilde Eklendi");
         }
 

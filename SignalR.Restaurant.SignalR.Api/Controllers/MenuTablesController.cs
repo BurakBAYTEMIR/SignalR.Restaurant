@@ -31,7 +31,7 @@ namespace SignalR.Restaurant.SignalR.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateAbout(CreateMenuTableDto createMenuTableDto)
+        public IActionResult CreateMenuTable(CreateMenuTableDto createMenuTableDto)
         {
             _menuTableService.TAdd(new MenuTable()
             {

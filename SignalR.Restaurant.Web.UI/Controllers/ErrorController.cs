@@ -3,17 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SignalR.Restaurant.Web.UI.Controllers
 {
-    public class MessageController : Controller
+    public class ErrorController : Controller
     {
         [AllowAnonymous]
-        public IActionResult Index()
+        public IActionResult NotFound404Page()
         {
             return View();
         }
-
-        public IActionResult ClientUserCount()
-        {
-            return View();
-        } 
     }
 }

@@ -12,5 +12,6 @@ namespace SignalR.Restaurant.DataAccess.Abstract
         public string ProductNameByMaxPrice();
         public string ProductNameByMinPrice();
         public decimal ProductAvgPriceByHamburger();
+        public List<Product> GetLast9Products();
     }
 }

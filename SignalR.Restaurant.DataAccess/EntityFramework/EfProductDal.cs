@@ -12,6 +12,15 @@ namespace SignalR.Restaurant.DataAccess.EntityFramework
         {
         }
 
+        public List<Product> GetLast9Products()
+        {
+            using (var context = new SignalRContext())
+            {
+                var values = context.Products.Take(6).ToList();
+                return values;
+            }
+        }
+
         public List<Product> GetProductsWithCategories()
         {
             var context = new SignalRContext();

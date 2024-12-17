@@ -28,6 +28,11 @@ namespace SignalR.Restaurant.Business.Concrete
             return _productDal.GetById(id);
         }
 
+        public List<Product> TGetLast9Products()
+        {
+            return _productDal.GetLast9Products();
+        }
+
         public List<Product> TGetListAll()
         {
             return _productDal.GetListAll();

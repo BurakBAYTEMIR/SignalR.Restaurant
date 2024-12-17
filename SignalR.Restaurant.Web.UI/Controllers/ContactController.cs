@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using SignalR.Restaurant.Web.UI.Dtos.CategoryDtos;
 using SignalR.Restaurant.Web.UI.Dtos.ContactDtos;
 using System.Text;
 
